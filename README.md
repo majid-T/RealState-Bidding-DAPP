@@ -4,15 +4,11 @@ Group Project for Blockchain Design Patterns
 
 ## Students
 
-Majid Shockoohi
-Aditi Sharma
-Malhar Dave
-Mariam Delos Reyes
-Taj Sivers
+Majid Shockoohi | Aditi Sharma | Malhar Dave | Mariam Delos Reyes | Taj Sivers
 
 ### Goals:
 
-To have a way for buyer and seller to be part of transparent auction of a real estate property. All owners will be able to offer their properties on the DAPP through a realtor, where all offers including price and date are visible to owners. At the moment due to lack of transparency there is the possibility of stakeholders to have side deals and others to suffer losses (Somebody make this good english please!! .by Majid)
+To have a way for buyer and seller to be part of transparent auction of a real estate property. All owners will be able to offer their properties on the DAPP through a realtor, where all offers including price and date are visible to owners. At the moment due to lack of transparency there is the possibility of stakeholders to have side deals and others to suffer losses.
 
 ### Stakeholders:
 
@@ -42,6 +38,10 @@ Owner can remove the property from the market, canceling all events and processe
 ## System Architecture
 
 ![architecture](/media/arch.png)
+
+## Process Flow
+
+![flow](/media/flow.png)
 
 ## Planing and execution
 
