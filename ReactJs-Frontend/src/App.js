@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
-import Owner from "./components/Buyer";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Owner from "./components/Owner";
 import Realtor from "./components/Realtor";
 import Bidder from "./components/Bidder";
 import Buyer from "./components/Buyer";
@@ -10,10 +10,9 @@ import Navigation from "./components/Navigation";
 function App() {
   return (
     <BrowserRouter>
-      <div>
-        <ul>
-          <Navigation />
-        </ul>
+      <Navigation />
+
+      <div className="mainPanel">
         <Switch>
           <Route exact path="/" component={Owner} />
           <Route path="/Realtor" component={Realtor} />
