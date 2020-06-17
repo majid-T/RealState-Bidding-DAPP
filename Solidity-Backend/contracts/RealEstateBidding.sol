@@ -20,10 +20,24 @@ contract RealEstateBidding is ERC721 {
         address winner;
     }
 
-    //tokens On market
+    //tokens On market  list to iterate
     uint256[] public market;
+
+    //tokens on market mapping for uinqe access
+    mapping(uint256 => bool) inMarket;
+
     //mapping from token Ids to bid process
     mapping(uint256 => SingleBidProcess) allBids;
+
+    //-- Events ---
+    event PropOnMarket(uint256 indexed tokenId, address indexed realtor);
+    event HighBid(uint256 indexed tokenId, address indexed bidder);
+    event WinnerRevealed(
+        uint256 indexed tokenId,
+        address indexed winner,
+        uint256 indexed price
+    );
+    event PropOnWithdraw(uint256 indexed tokenId);
 
     constructor() public ERC721("RealEstateBidding", "REB") {}
 
@@ -62,9 +76,12 @@ contract RealEstateBidding is ERC721 {
         );
         //change on market to true on bidProcess struct
         allBids[tokenId].onMarket = true;
-        market.push(tokenId);
+        if (!inMarket[tokenId]) {
+            inMarket[tokenId] = true;
+            market.push(tokenId);
+        }
         // Fire event on market
-        // Event Firing ---->
+        emit PropOnMarket(tokenId, msg.sender);
     }
 
     //biding on properties
@@ -83,7 +100,7 @@ contract RealEstateBidding is ERC721 {
         allBids[tokenId].highestBid = Bid(msg.sender, amount);
         //push bid to array bids
         //Fire new high bid
-        // Event Firing ---->
+        emit HighBid(tokenId, msg.sender);
     }
 
     // Reveal winner function
@@ -101,9 +118,13 @@ contract RealEstateBidding is ERC721 {
             allBids[tokenId].onMarket = false;
             allBids[tokenId].winnerRevealed = true;
             allBids[tokenId].winner = allBids[tokenId].highestBid.bidAddress;
+            emit WinnerRevealed(
+                tokenId,
+                allBids[tokenId].winner,
+                allBids[tokenId].highestBid.bidAmount
+            );
             return allBids[tokenId].winner;
             //Fire new high bid
-            // Event Firing ---->
         }
     }
 
@@ -130,7 +151,36 @@ contract RealEstateBidding is ERC721 {
         allBids[tokenId].realtor = address(0);
 
         //Fire event property withdraw from market
-        // Fire Event ----->
+        emit PropOnWithdraw(tokenId);
+
         return true;
+    }
+
+    // Getting single bid
+    function getBidProcess(uint256 tokenId)
+        public
+        view
+        returns (
+            address,
+            bool,
+            address,
+            uint256,
+            bool,
+            address
+        )
+    {
+        //check if tokenId is still on market
+        require(
+            allBids[tokenId].onMarket,
+            "RealStatebidding:Property is no longer on Market"
+        );
+        return (
+            allBids[tokenId].realtor,
+            allBids[tokenId].onMarket,
+            allBids[tokenId].highestBid.bidAddress,
+            allBids[tokenId].highestBid.bidAmount,
+            allBids[tokenId].winnerRevealed,
+            allBids[tokenId].winner
+        );
     }
 }
