@@ -2,7 +2,15 @@ import React, { Component } from "react";
 import OwnerPropView from "./OwnerPropView";
 
 class Owner extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      account: "",
+      contract: null,
+      totalSupply: 0,
+    };
+  }
+
   render() {
     return (
       <div>
