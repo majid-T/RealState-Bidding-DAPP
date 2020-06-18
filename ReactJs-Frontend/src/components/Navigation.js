@@ -16,6 +16,10 @@ const Navigation = () => {
       <Link className="stakeholdersLabel" to="/Buyer">
         Buyer
       </Link>
+      <Link className="stakeholdersLabel" to="/OwnerPropView">
+        Owner Prop View
+      </Link>
+      
     </div>
   );
 };
