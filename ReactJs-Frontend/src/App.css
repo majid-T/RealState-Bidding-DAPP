@@ -69,24 +69,24 @@ a {
   display: inline-block;
 }
 
-#select {
+/* #select {
   display: inline, none;
   height: 30px;
   width: 75px;
   border-radius: 10px;
   color: purple;
   background-color: orange;
-}
+} */
 
-.CounterBid {
+/* .CounterBid {
   height: 50px;
   width: 200px;
   border-radius: 10px;
   color: purple;
   background-color: white;
-}
+} */
 
-.Submit {
+/* .Submit {
   height: 50px;
   width: 100px;
   border-radius: 10px;
@@ -102,9 +102,12 @@ a {
   height: 200px;
   width: 400px;
   border-radius: 10px;
-}
+} */
 
-p {
-  font-weight: bold;
-  font-size: large;
+.tokenCard {
+  border: 1px solid white;
+  padding: 10px;
+  margin: 10px;
+  width: 20%;
+  float: left;
 }

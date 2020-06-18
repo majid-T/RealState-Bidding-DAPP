@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class RealtorPropView extends React.Component {
   render() {
     return (
-      <div>
+      <div className="tokenCard">
         <label htmlFor="PropertyName">Property A </label>
         <br />
         <label htmlFor="OwnerAddress"> Owner:0x00</label>

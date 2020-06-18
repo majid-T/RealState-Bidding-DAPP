@@ -16,21 +16,25 @@ function App() {
 
   const loadBlockchainData = async () => {
     // Load accounts
-    const accounts = await web3.eth.getAccounts();
     const networkId = await web3.eth.net.getId();
+    console.log(networkId);
 
     const networkData = RealEstateBidding.networks[networkId];
 
     if (networkData) {
+      console.log(networkData);
       const abi = RealEstateBidding.abi;
-      const address = networkData.address;
+      const address = "0x354d7EaEc2dB2b6A73D87841151F2A935b717d54";
+      console.log(address);
       contract = await new web3.eth.Contract(abi, address);
+      console.log(contract);
     } else {
       window.alert("Smart contract not deployed to detected network.");
     }
   };
 
   loadBlockchainData();
+
   return (
     <BrowserRouter>
       <Navigation />
@@ -58,7 +62,12 @@ function App() {
           <Route
             path="/Buyer"
             render={(props) => (
-              <Buyer {...props} web3={web3} contract={contract} />
+              <Buyer
+                {...props}
+                web3={web3}
+                contract={contract}
+                theName={"majid"}
+              />
             )}
           />
         </Switch>

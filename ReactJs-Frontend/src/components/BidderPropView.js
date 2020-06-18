@@ -4,7 +4,7 @@ import React from "react";
 
 const BidderPropView = () => {
   return (
-    <div>
+    <div className="tokenCard">
       <ul>
         <li>
           <h3>Property A</h3>

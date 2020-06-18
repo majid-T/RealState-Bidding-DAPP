@@ -20,6 +20,8 @@ contract RealEstateBidding is ERC721 {
         address winner;
     }
 
+    //holds all tokens minted
+    uint256[] public allTokens;
     //tokens On market  list to iterate
     uint256[] public market;
 
@@ -43,6 +45,7 @@ contract RealEstateBidding is ERC721 {
 
     function mint(uint256 propID) public {
         _mint(msg.sender, propID);
+        allTokens.push(propID);
     }
 
     //Function to assign a realtor by owner
@@ -170,10 +173,10 @@ contract RealEstateBidding is ERC721 {
         )
     {
         //check if tokenId is still on market
-        require(
-            allBids[tokenId].onMarket,
-            "RealStatebidding:Property is no longer on Market"
-        );
+        // require(
+        //     allBids[tokenId].onMarket,
+        //     "RealStatebidding:Property is no longer on Market"
+        // );
         return (
             allBids[tokenId].realtor,
             allBids[tokenId].onMarket,
