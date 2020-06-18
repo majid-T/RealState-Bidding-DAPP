@@ -6,7 +6,7 @@ import Realtor from "./components/Realtor";
 import Bidder from "./components/Bidder";
 import Buyer from "./components/Buyer";
 import Navigation from "./components/Navigation";
-
+import OwnerPropView from "./components/OwnerPropView";
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +18,7 @@ function App() {
           <Route path="/Realtor" component={Realtor} />
           <Route path="/Bidder" component={Bidder} />
           <Route path="/Buyer" component={Buyer} />
+          <Route path="/OwnerPropView" component={OwnerPropView} />
         </Switch>
       </div>
     </BrowserRouter>
