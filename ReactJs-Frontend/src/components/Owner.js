@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import OwnerPropView from "./OwnerPropView";
 
 class Owner extends Component {
   state = {};
@@ -6,16 +7,15 @@ class Owner extends Component {
     return (
       <div>
         <form>
-          <input type="text" placeholder="option1" />
-          <input type="text" placeholder="option2" />
-          <input type="text" placeholder="option3" />
+          <input type="text" placeholder="Property Id" />
 
           <button type="submit">Mint new Property</button>
         </form>
 
         <hr></hr>
         <div>
-          <p>Owned property will list here</p>
+          <OwnerPropView />
+          <OwnerPropView />
         </div>
         <hr></hr>
       </div>

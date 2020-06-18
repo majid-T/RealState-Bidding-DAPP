@@ -40,3 +40,71 @@ a {
   cursor: pointer;
   text-align: center;
 }
+
+.bidding {
+  height: 50px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+#AVATAR {
+  border-radius: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px;
+  color: orange;
+}
+
+.list {
+  display: inline-block;
+}
+
+#select {
+  display: inline, none;
+  height: 30px;
+  width: 75px;
+  border-radius: 10px;
+  color: purple;
+  background-color: orange;
+}
+
+.CounterBid {
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  color: purple;
+  background-color: white;
+}
+
+.Submit {
+  height: 50px;
+  width: 100px;
+  border-radius: 10px;
+  color: black;
+  background-color: orange;
+}
+
+.select-selected {
+  background-color: orange;
+}
+
+.house {
+  height: 200px;
+  width: 400px;
+  border-radius: 10px;
+}
+
+p {
+  font-weight: bold;
+  font-size: large;
+}

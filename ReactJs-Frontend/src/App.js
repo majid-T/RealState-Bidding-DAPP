@@ -18,7 +18,6 @@ function App() {
           <Route path="/Realtor" component={Realtor} />
           <Route path="/Bidder" component={Bidder} />
           <Route path="/Buyer" component={Buyer} />
-          <Route path="/OwnerPropView" component={OwnerPropView} />
         </Switch>
       </div>
     </BrowserRouter>
