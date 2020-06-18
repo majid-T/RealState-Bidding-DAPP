@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navigation = () => {
   return (
     <div className="stakeholdersBar">
-      <Link className="stakeholdersLabel" to="/">
+      <Link className="stakeholdersLabel" to="/Owner">
         Owner
       </Link>
       <Link className="stakeholdersLabel" to="/Realtor">

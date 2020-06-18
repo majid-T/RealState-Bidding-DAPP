@@ -4,9 +4,9 @@ class RealtorPropView extends React.Component {
   render() {
     return (
       <div>
-        <label for="PropertyName">Property A </label>
+        <label htmlFor="PropertyName">Property A </label>
         <br />
-        <label for="OwnerAddress"> Owner:0x00</label>
+        <label htmlFor="OwnerAddress"> Owner:0x00</label>
         <br />
         <br />
         <button type="button">Transfer To Winner</button>

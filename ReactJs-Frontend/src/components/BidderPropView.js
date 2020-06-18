@@ -17,13 +17,13 @@ const BidderPropView = () => {
           </select> */}
           <h2 id="HighestBid"> $1,000,000</h2>
           <input
-            class="CounterBid"
+            className="CounterBid"
             type="number"
             placeholder=" &nbsp;Place CounterBid Here."
           />
           <br />
           <br />
-          <button class="Submit" type="button">
+          <button className="Submit" type="button">
             CounterBid
           </button>
         </li>
