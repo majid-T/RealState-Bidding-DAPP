@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 const RealtorPropView = (props) => {
   const web3 = props.web3;
   const contract = props.contract;
-  const accountZero = "0x0000000000000000000000000000000000000000";
 
   const [tokenOwner, setTokenOwner] = useState("");
   const [bidProcess, setBidProcess] = useState({});
@@ -103,11 +102,3 @@ const RealtorPropView = (props) => {
 };
 
 export default RealtorPropView;
-
-// 0  allBids[tokenId].realtor,
-// 1  allBids[tokenId].onMarket,
-// 2  allBids[tokenId].highestBid.bidAddress,
-
-// 3  allBids[tokenId].highestBid.bidAmount,
-// 4  allBids[tokenId].winnerRevealed,
-// 5  allBids[tokenId].winner

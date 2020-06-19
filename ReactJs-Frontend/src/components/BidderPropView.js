@@ -1,33 +1,49 @@
-import React from "react";
-// import house from "../avatar/House.jpeg";
-//import house2 from "../avatar/house2.jpeg";
+import React, { useState, useEffect } from "react";
 
-const BidderPropView = () => {
+const BidderPropView = (props) => {
+  const web3 = props.web3;
+  const contract = props.contract;
+  const accountAddress = props.bidderAccount;
+
+  const [bidProcess, setBidProcess] = useState({});
+  const [bidAmmount, setBidAmmount] = useState(0);
+
+  const getBid = async () => {
+    const bid = await props.contract.methods
+      .getBidProcess(props.tokenId)
+      .call();
+    setBidProcess(bid);
+  };
+
+  useEffect(() => {
+    getBid();
+  }, []);
+
+  const bidProperty = async () => {
+    console.log(accountAddress);
+    const tx1 = await contract.methods
+      .bid(props.tokenId, bidAmmount)
+      .send({ from: accountAddress, gas: 2000000 });
+
+    if (tx1) {
+      console.log(tx1);
+    } else {
+      console.log("something went wrong");
+    }
+  };
+
   return (
     <div className="tokenCard">
-      <ul>
-        <li>
-          <h3>Property A</h3>
-          {/* <img src={house} class="house" alt="ExampleProperty" /> */}
-          {/* <label for="select">On Market:</label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <select id="select">
-            <option value="YES">YES</option>
-            <option value="NO">NO</option>
-          </select> */}
-          <h2 id="HighestBid"> $1,000,000</h2>
-          <input
-            className="CounterBid"
-            type="number"
-            placeholder=" &nbsp;Place CounterBid Here."
-          />
-          <br />
-          <br />
-          <button className="Submit" type="button">
-            CounterBid
-          </button>
-        </li>
-      </ul>
+      <h3>Property: {props.tokenId}</h3>
+      <h4>Highest Bid : {Number(bidProcess[3])} $</h4>
+      <input
+        type="number"
+        placeholder=" &nbsp;Place CounterBid Here."
+        onChange={(e) => setBidAmmount(e.target.value)}
+      />
+      <button type="button" onClick={bidProperty}>
+        Bid/CounterBid
+      </button>
     </div>
   );
 };
