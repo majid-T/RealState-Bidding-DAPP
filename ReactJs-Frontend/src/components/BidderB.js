@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import BidderPropView from "./BidderPropView";
+import OwnerPropView from "./OwnerPropView";
 
 const BidderB = (props) => {
   const web3 = props.web3;
   const contract = props.contract;
 
   const [houses, setHouses] = useState([]);
+  const [ownedTokens, setOwnedTokens] = useState([]);
   const [bidderAccount, setBidderAccount] = useState();
 
   const getAllTokens = async () => {
     let theTokens = [];
     const totalSupply = await contract.methods.totalSupply().call();
-    console.log("totalSup:", totalSupply);
     // Load Tokens
     for (var i = 0; i < totalSupply; i++) {
       const token = await contract.methods.allTokens(i).call();
@@ -29,24 +30,56 @@ const BidderB = (props) => {
     setBidderAccount(acc);
   };
 
+  const getOwnedTokens = async () => {
+    let theTokens = [];
+    const totalSupply = await contract.methods.totalSupply().call();
+    // Load Tokens
+    for (var i = 0; i < totalSupply; i++) {
+      const token = await contract.methods.allTokens(i).call();
+      const tokenOwner = await contract.methods.ownerOf(token).call();
+      if (tokenOwner === bidderAccount) {
+        theTokens.push(token);
+      }
+    }
+    setOwnedTokens(theTokens);
+  };
+
   useEffect(() => {
     setAccount();
     getAllTokens();
+    getOwnedTokens();
   }, []);
 
   return (
-    <div className="tokenContainer">
-      {houses.map((pr, key) => {
-        return (
-          <BidderPropView
-            tokenId={pr}
-            key={key}
-            contract={contract}
-            web3={web3}
-            bidderAccount={bidderAccount}
-          />
-        );
-      })}
+    <div className="container">
+      <h2>Owned Tokens</h2>
+      <div className="tokenContainer">
+        {ownedTokens.map((pr, key) => {
+          return (
+            <OwnerPropView
+              tokenId={pr}
+              key={key}
+              contract={contract}
+              web3={web3}
+            />
+          );
+        })}
+      </div>
+
+      <h2>Tokens on Market</h2>
+      <div className="tokenContainer">
+        {houses.map((pr, key) => {
+          return (
+            <BidderPropView
+              tokenId={pr}
+              key={key}
+              contract={contract}
+              web3={web3}
+              bidderAccount={bidderAccount}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

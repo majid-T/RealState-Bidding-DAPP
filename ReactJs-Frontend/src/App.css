@@ -104,6 +104,13 @@ a {
   border-radius: 10px;
 } */
 
+.container {
+  display: grid;
+}
+
+.tokenContainer {
+  border: 1px solid dimgray;
+}
 .tokenCard {
   border: 1px solid white;
   padding: 10px;

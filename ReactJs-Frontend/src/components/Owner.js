@@ -48,7 +48,7 @@ const Owner = (props) => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <form>
         <input
           type="text"
@@ -59,7 +59,6 @@ const Owner = (props) => {
           Mint new Property
         </button>
       </form>
-      <hr></hr>
 
       <div className="tokenContainer">
         {houses.map((pr, key) => {

@@ -6,6 +6,12 @@ Group Project for Blockchain Design Patterns
 
 Majid Shockoohi | Aditi Sharma | Malhar Dave | Mariam Delos Reyes | Taj Sivers
 
+### How to Deploy
+
+1- Deploy contract on your ganache
+1- Use contract address and replace it with contract address in app.js of frontend
+1- npm start in frontend folder
+
 ### Goals:
 
 To have a way for buyer and seller to be part of transparent auction of a real estate property. All owners will be able to offer their properties on the DAPP through a realtor, where all offers including price and date are visible to owners. At the moment due to lack of transparency there is the possibility of stakeholders to have side deals and others to suffer losses.

@@ -30,17 +30,19 @@ const Realtor = (props) => {
   }, []);
 
   return (
-    <div className="tokenContainer">
-      {houses.map((pr, key) => {
-        return (
-          <RealtorPropView
-            tokenId={pr}
-            key={key}
-            contract={contract}
-            web3={web3}
-          />
-        );
-      })}
+    <div className="container">
+      <div className="tokenContainer">
+        {houses.map((pr, key) => {
+          return (
+            <RealtorPropView
+              tokenId={pr}
+              key={key}
+              contract={contract}
+              web3={web3}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

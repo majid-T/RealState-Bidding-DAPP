@@ -5,7 +5,6 @@ import Owner from "./components/Owner";
 import Realtor from "./components/Realtor";
 import BidderA from "./components/BidderA";
 import BidderB from "./components/BidderB";
-import Buyer from "./components/Buyer";
 import Navigation from "./components/Navigation";
 import Web3 from "web3";
 import RealEstateBidding from "./RealEstateBidding.json";
@@ -65,17 +64,6 @@ function App() {
             path="/BidderB"
             render={(props) => (
               <BidderB {...props} web3={web3} contract={contract} />
-            )}
-          />
-          <Route
-            path="/Buyer"
-            render={(props) => (
-              <Buyer
-                {...props}
-                web3={web3}
-                contract={contract}
-                theName={"majid"}
-              />
             )}
           />
         </Switch>
