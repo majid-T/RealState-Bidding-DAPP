@@ -13,7 +13,6 @@ const OwnerPropView = (props) => {
       .getBidProcess(props.tokenId)
       .call();
     setBidProcess(bid);
-    console.log(bid);
   };
 
   useEffect(() => {
@@ -65,14 +64,16 @@ const OwnerPropView = (props) => {
       <h3>Property: {props.tokenId}</h3>
       <h4>Highest Bid : {Number(bidProcess[2])} $</h4>
       {bidProcess[1] && <p>In Market</p>}
-      {bidProcess[0] == accountZero && (
+      <p className="small-address">Realtor: {bidProcess[0]} </p>
+
+      {bidProcess[0] === accountZero && (
         <input
           type="text"
           placeholder="realtor 0x0000"
           onChange={(event) => setPropRealtor(event.target.value)}
         />
       )}
-      {bidProcess[0] == accountZero && (
+      {bidProcess[0] === accountZero && (
         <button type="button" onClick={assignRealtor}>
           Assign Realtor
         </button>
@@ -89,11 +90,3 @@ const OwnerPropView = (props) => {
 };
 
 export default OwnerPropView;
-
-// 0  allBids[tokenId].realtor,
-// 1  allBids[tokenId].onMarket,
-// 2  allBids[tokenId].highestBid.bidAddress,
-
-// 3  allBids[tokenId].highestBid.bidAmount,
-// 4  allBids[tokenId].winnerRevealed,
-// 5  allBids[tokenId].winner

@@ -108,6 +108,17 @@ a {
   border: 1px solid white;
   padding: 10px;
   margin: 10px;
-  width: 20%;
+  width: 30%;
+  height: 400px;
   float: left;
+  border-radius: 10px;
+}
+
+.tokenCard button,
+.tokenCard input {
+  width: 100%;
+}
+
+.small-address {
+  font-size: 0.65em;
 }
