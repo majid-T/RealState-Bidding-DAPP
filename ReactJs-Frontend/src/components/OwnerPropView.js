@@ -61,10 +61,15 @@ const OwnerPropView = (props) => {
 
   return (
     <div className="tokenCard">
+      {bidProcess[1] ? (
+        <p className="marketBadge inMarket">In Market</p>
+      ) : (
+        <p className="marketBadge outMarket">Not In Market</p>
+      )}
+      <p className="small-address">Realtor: {bidProcess[0]} </p>
+
       <h3>Property: {props.tokenId}</h3>
       <h4>Highest Bid : {Number(bidProcess[3])} $</h4>
-      {bidProcess[1] && <p>In Market</p>}
-      <p className="small-address">Realtor: {bidProcess[0]} </p>
 
       {bidProcess[0] === accountZero && (
         <input

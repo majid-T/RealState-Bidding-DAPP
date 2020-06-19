@@ -8,9 +8,9 @@ Majid Shockoohi | Aditi Sharma | Malhar Dave | Mariam Delos Reyes | Taj Sivers
 
 ### How to Deploy
 
-1- Deploy contract on your ganache
-1- Use contract address and replace it with contract address in app.js of frontend
-1- npm start in frontend folder
+1. Deploy contract on your ganache
+1. Use contract address and replace it with contract address in app.js of frontend
+1. npm start in frontend folder
 
 ### Goals:
 

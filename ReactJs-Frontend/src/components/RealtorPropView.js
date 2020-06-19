@@ -80,10 +80,14 @@ const RealtorPropView = (props) => {
 
   return (
     <div className="tokenCard">
+      {bidProcess[1] ? (
+        <p className="marketBadge inMarket">In Market</p>
+      ) : (
+        <p className="marketBadge outMarket">Not In Market</p>
+      )}
+      <p className="small-address"> Owner: {tokenOwner}</p>
       <h3>Property: {props.tokenId}</h3>
       <h4>Highest Bid : {Number(bidProcess[3])} $</h4>
-      {bidProcess[1] && <p>In Market</p>} <br />
-      <p className="small-address"> Owner: {tokenOwner}</p>
       {!bidProcess[1] && (
         <button type="button" onClick={putOnMarket}>
           Place On Market
