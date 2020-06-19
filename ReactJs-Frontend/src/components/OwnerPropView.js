@@ -62,7 +62,7 @@ const OwnerPropView = (props) => {
   return (
     <div className="tokenCard">
       <h3>Property: {props.tokenId}</h3>
-      <h4>Highest Bid : {Number(bidProcess[2])} $</h4>
+      <h4>Highest Bid : {Number(bidProcess[3])} $</h4>
       {bidProcess[1] && <p>In Market</p>}
       <p className="small-address">Realtor: {bidProcess[0]} </p>
 
