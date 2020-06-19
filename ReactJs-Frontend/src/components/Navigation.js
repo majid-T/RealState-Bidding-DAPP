@@ -10,8 +10,11 @@ const Navigation = () => {
       <Link className="stakeholdersLabel" to="/Realtor">
         Realtor
       </Link>
-      <Link className="stakeholdersLabel" to="/Bidder">
-        Bidder
+      <Link className="stakeholdersLabel" to="/BidderA">
+        BidderA
+      </Link>
+      <Link className="stakeholdersLabel" to="/BidderB">
+        BidderB
       </Link>
       <Link className="stakeholdersLabel" to="/Buyer">
         Buyer

@@ -1,7 +1,7 @@
 import React from "react";
 import BidderPropView from "./BidderPropView";
 
-const Bidder = () => {
+const BidderA = () => {
   return (
     <div>
       <p>Bidder Page</p>
@@ -12,4 +12,4 @@ const Bidder = () => {
   );
 };
 
-export default Bidder;
+export default BidderA;

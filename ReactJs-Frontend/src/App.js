@@ -3,7 +3,8 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Owner from "./components/Owner";
 import Realtor from "./components/Realtor";
-import Bidder from "./components/Bidder";
+import BidderA from "./components/BidderA";
+import BidderB from "./components/BidderB";
 import Buyer from "./components/Buyer";
 import Navigation from "./components/Navigation";
 import Web3 from "web3";
@@ -55,9 +56,15 @@ function App() {
             )}
           />
           <Route
-            path="/Bidder"
+            path="/BidderA"
             render={(props) => (
-              <Bidder {...props} web3={web3} contract={contract} />
+              <BidderA {...props} web3={web3} contract={contract} />
+            )}
+          />
+          <Route
+            path="/BidderB"
+            render={(props) => (
+              <BidderB {...props} web3={web3} contract={contract} />
             )}
           />
           <Route
