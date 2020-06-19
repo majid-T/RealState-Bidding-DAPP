@@ -9,8 +9,8 @@ const Buyer = (props) => {
     <div>
       <p>Buyer Page</p>
       <p>Market size: {marketSize}</p>
-      <button onClick={}>click</button>
-      <button onClick={}>All tokens</button>
+      <button>click</button>
+      <button>All tokens</button>
     </div>
   );
 };

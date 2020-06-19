@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const OwnerPropView = (props) => {
+  const web3 = props.web3;
+  const contract = props.contract;
+  const accountZero = "0x0000000000000000000000000000000000000000";
+
   const [bidProcess, setBidProcess] = useState({});
+  const [porpRealtor, setPropRealtor] = useState(accountZero);
 
   const getBid = async () => {
     const bid = await props.contract.methods
@@ -11,31 +16,84 @@ const OwnerPropView = (props) => {
     console.log(bid);
   };
 
-  getBid();
-  const assignReealtor = async () => {
-    alert(props.tokenId);
+  useEffect(() => {
+    getBid();
+  }, []);
+
+  const assignRealtor = async () => {
+    const accounts = await web3.eth.getAccounts();
+    const ownerAccount = accounts[0];
+    const tx1 = await contract.methods
+      .assignRealtor(props.tokenId, porpRealtor)
+      .send({ from: ownerAccount, gas: 2000000 });
+
+    if (tx1) {
+      console.log(tx1);
+    } else {
+      console.log("something went wrong");
+    }
   };
+
+  const allowTransfer = async () => {
+    const accounts = await web3.eth.getAccounts();
+    const ownerAccount = accounts[0];
+    const tx1 = await contract.methods
+      .approve(bidProcess[0], props.tokenId)
+      .send({ from: ownerAccount, gas: 2000000 });
+    if (tx1) {
+      console.log(tx1);
+    } else {
+      console.log("something went wrong");
+    }
+  };
+
+  const withdrawFromMarket = async () => {
+    const accounts = await web3.eth.getAccounts();
+    const ownerAccount = accounts[0];
+    const tx1 = await contract.methods
+      .withdrawFromMarket(props.tokenId)
+      .send({ from: ownerAccount, gas: 2000000 });
+    if (tx1) {
+      console.log(tx1);
+    } else {
+      console.log("something went wrong");
+    }
+  };
+
   return (
     <div className="tokenCard">
       <h3>Property: {props.tokenId}</h3>
       <h4>Highest Bid : {Number(bidProcess[2])} $</h4>
       {bidProcess[1] && <p>In Market</p>}
-      <input type="text" placeholder="realtor 0x0000" />
-      <button type="button" onClick={assignReealtor}>
+      {bidProcess[0] == accountZero && (
+        <input
+          type="text"
+          placeholder="realtor 0x0000"
+          onChange={(event) => setPropRealtor(event.target.value)}
+        />
+      )}
+      {bidProcess[0] == accountZero && (
+        <button type="button" onClick={assignRealtor}>
+          Assign Realtor
+        </button>
+      )}
+
+      <button type="button" onClick={allowTransfer}>
         Allow Transfer
       </button>
-      <button type="button">Assign Realtor</button>
-      <button type="button">Withdraw from market</button>
+      <button type="button" onClick={withdrawFromMarket}>
+        Withdraw from market
+      </button>
     </div>
   );
 };
 
 export default OwnerPropView;
 
-//   allBids[tokenId].realtor,
-//   allBids[tokenId].onMarket,
-//   allBids[tokenId].highestBid.bidAddress,
+// 0  allBids[tokenId].realtor,
+// 1  allBids[tokenId].onMarket,
+// 2  allBids[tokenId].highestBid.bidAddress,
 
-//   allBids[tokenId].highestBid.bidAmount,
-//   allBids[tokenId].winnerRevealed,
-//   allBids[tokenId].winner
+// 3  allBids[tokenId].highestBid.bidAmount,
+// 4  allBids[tokenId].winnerRevealed,
+// 5  allBids[tokenId].winner

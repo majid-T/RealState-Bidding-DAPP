@@ -11,12 +11,12 @@ const Owner = (props) => {
   const mintProperty = async () => {
     console.log("Minting ", mintPropId);
     const accounts = await web3.eth.getAccounts();
-    const minitingAcoount = accounts[0];
+    const mintingAccount = accounts[0];
 
-    console.log("minting from address", minitingAcoount);
+    console.log("minting from address", mintingAccount);
     const tx1 = await contract.methods
       .mint(mintPropId)
-      .send({ from: minitingAcoount, gas: 2000000 });
+      .send({ from: mintingAccount, gas: 2000000 });
 
     if (tx1) {
       console.log(tx1);
@@ -26,18 +26,26 @@ const Owner = (props) => {
   };
 
   const getAllTokens = async () => {
+    const accounts = await web3.eth.getAccounts();
+    const mintingAccount = accounts[0];
+
     let theTokens = [];
     const totalSupply = await contract.methods.totalSupply().call();
     console.log("totalSup:", totalSupply);
     // Load Tokens
     for (var i = 0; i < totalSupply; i++) {
       const token = await contract.methods.allTokens(i).call();
-      theTokens.push(token);
+      const tokenOwner = await contract.methods.ownerOf(token).call();
+      if (tokenOwner === mintingAccount) {
+        theTokens.push(token);
+      }
     }
-
-    console.log(theTokens);
     setHouses(theTokens);
   };
+
+  useEffect(() => {
+    getAllTokens();
+  }, []);
 
   return (
     <div>
@@ -50,16 +58,19 @@ const Owner = (props) => {
         <button type="button" onClick={mintProperty}>
           Mint new Property
         </button>
-
-        <button type="button" onClick={getAllTokens}>
-          loadMy tokens
-        </button>
       </form>
       <hr></hr>
 
       <div className="tokenContainer">
         {houses.map((pr, key) => {
-          return <OwnerPropView tokenId={pr} key={key} contract={contract} />;
+          return (
+            <OwnerPropView
+              tokenId={pr}
+              key={key}
+              contract={contract}
+              web3={web3}
+            />
+          );
         })}
       </div>
     </div>

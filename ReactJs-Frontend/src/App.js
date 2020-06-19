@@ -24,7 +24,8 @@ function App() {
     if (networkData) {
       console.log(networkData);
       const abi = RealEstateBidding.abi;
-      const address = "0x354d7EaEc2dB2b6A73D87841151F2A935b717d54";
+      //This will change on every deployment
+      const address = "0xBf8d5bb93F6Bd59EE6dBCEa7Aa5910e885887502";
       console.log(address);
       contract = await new web3.eth.Contract(abi, address);
       console.log(contract);
