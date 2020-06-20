@@ -7,7 +7,6 @@ const Realtor = (props) => {
   const realtorAccount = props.allAccounts[1];
 
   const [houses, setHouses] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   const getAllTokens = async () => {
     let theTokens = [];
@@ -26,7 +25,7 @@ const Realtor = (props) => {
 
   useEffect(() => {
     getAllTokens();
-  }, [loading]);
+  }, []);
 
   return (
     <div className="container">

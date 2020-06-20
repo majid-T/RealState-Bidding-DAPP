@@ -114,3 +114,14 @@ a {
   color: black;
   border-radius: 0px 30px 30px 0px;
 }
+
+#mintInput {
+  width: 25%;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+button,
+input {
+  border-radius: 5px;
+}

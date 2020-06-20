@@ -22,6 +22,11 @@ const OwnerPropView = (props) => {
 
   const assignRealtor = async () => {
     setLoading(true);
+    if (!porpRealtor) {
+      alert("Please fill in realtor address first");
+      setLoading(false);
+      return;
+    }
     const accounts = await web3.eth.getAccounts();
     const ownerAccount = accounts[0];
     const tx1 = await contract.methods

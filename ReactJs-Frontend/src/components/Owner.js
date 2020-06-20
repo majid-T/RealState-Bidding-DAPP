@@ -12,6 +12,11 @@ const Owner = (props) => {
 
   const mintProperty = async () => {
     setLoading(true);
+    if (!mintPropId) {
+      alert("Please fill in property number first");
+      setLoading(false);
+      return;
+    }
     console.log("Minting ", mintPropId);
     console.log("minting from address", ownerAccount);
     const tx1 = await contract.methods
@@ -54,8 +59,9 @@ const Owner = (props) => {
       ) : (
         <form>
           <input
-            type="text"
-            placeholder="Property Id"
+            type="number"
+            placeholder="Property Id - numbers only"
+            id="mintInput"
             onChange={(event) => setMintPropId(event.target.value)}
           ></input>
           <button type="button" onClick={mintProperty}>

@@ -41,11 +41,11 @@ const BidderA = (props) => {
   useEffect(() => {
     getAllTokens();
     getOwnedTokens();
-  }, [houses, ownedTokens]);
+  }, []);
 
   return (
     <div className="container">
-      <span>Account Bidder A: {bidderA_Address}</span>
+      <span className="title_address">Account Bidder A: {bidderA_Address}</span>
       <h2>Owned Tokens</h2>
       <div className="tokenContainer">
         {ownedTokens.map((pr, key) => {

@@ -7,6 +7,7 @@ const BidderPropView = (props) => {
 
   const [bidProcess, setBidProcess] = useState({});
   const [bidAmmount, setBidAmmount] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const getBid = async () => {
     const bid = await props.contract.methods
@@ -17,10 +18,15 @@ const BidderPropView = (props) => {
 
   useEffect(() => {
     getBid();
-  }, [bidProcess]);
+  }, [loading]);
 
   const bidProperty = async () => {
-    console.log(accountAddress);
+    setLoading(true);
+    if (!bidAmmount) {
+      alert("Please fill in bid ammount first");
+      setLoading(false);
+      return;
+    }
     const tx1 = await contract.methods
       .bid(props.tokenId, bidAmmount)
       .send({ from: accountAddress, gas: 2000000 });
@@ -30,6 +36,7 @@ const BidderPropView = (props) => {
     } else {
       console.log("something went wrong");
     }
+    setLoading(false);
   };
 
   return (
@@ -37,7 +44,7 @@ const BidderPropView = (props) => {
       {bidProcess[2] === accountAddress ? (
         <p className="marketBadge inMarket">You are highest</p>
       ) : (
-        <p className="marketBadge outMarket">Someone else in lead</p>
+        <p className="marketBadge outMarket">Other in lead</p>
       )}
       <h3>Property: {props.tokenId}</h3>
       <h4>Highest Bid : {Number(bidProcess[3])} $</h4>
@@ -49,6 +56,7 @@ const BidderPropView = (props) => {
       <button type="button" onClick={bidProperty}>
         Bid/CounterBid
       </button>
+      {loading && <p>Bidding property...</p>}
     </div>
   );
 };
