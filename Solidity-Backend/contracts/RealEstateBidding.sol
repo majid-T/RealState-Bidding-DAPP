@@ -127,7 +127,6 @@ contract RealEstateBidding is ERC721 {
                 allBids[tokenId].highestBid.bidAmount
             );
             return allBids[tokenId].winner;
-            //Fire new high bid
         }
     }
 
@@ -152,6 +151,7 @@ contract RealEstateBidding is ERC721 {
 
         allBids[tokenId].onMarket = false;
         allBids[tokenId].realtor = address(0);
+        allBids[tokenId].highestBid = Bid(address(0), 0);
 
         //Fire event property withdraw from market
         emit PropOnWithdraw(tokenId);

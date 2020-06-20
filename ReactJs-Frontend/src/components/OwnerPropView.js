@@ -17,7 +17,7 @@ const OwnerPropView = (props) => {
 
   useEffect(() => {
     getBid();
-  }, []);
+  }, [bidProcess]);
 
   const assignRealtor = async () => {
     const accounts = await web3.eth.getAccounts();

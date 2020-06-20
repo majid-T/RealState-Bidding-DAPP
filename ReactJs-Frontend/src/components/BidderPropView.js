@@ -17,7 +17,7 @@ const BidderPropView = (props) => {
 
   useEffect(() => {
     getBid();
-  }, []);
+  }, [bidProcess]);
 
   const bidProperty = async () => {
     console.log(accountAddress);
@@ -34,6 +34,11 @@ const BidderPropView = (props) => {
 
   return (
     <div className="tokenCard">
+      {bidProcess[2] === accountAddress ? (
+        <p className="marketBadge inMarket">You are highest</p>
+      ) : (
+        <p className="marketBadge outMarket">Someone else in lead</p>
+      )}
       <h3>Property: {props.tokenId}</h3>
       <h4>Highest Bid : {Number(bidProcess[3])} $</h4>
       <input

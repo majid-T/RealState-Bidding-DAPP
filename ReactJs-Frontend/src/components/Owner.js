@@ -1,34 +1,30 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import OwnerPropView from "./OwnerPropView";
 
 const Owner = (props) => {
   const web3 = props.web3;
   const contract = props.contract;
+  const ownerAccount = props.allAccounts[0];
 
   const [houses, setHouses] = useState([]);
   const [mintPropId, setMintPropId] = useState("");
 
   const mintProperty = async () => {
     console.log("Minting ", mintPropId);
-    const accounts = await web3.eth.getAccounts();
-    const mintingAccount = accounts[0];
-
-    console.log("minting from address", mintingAccount);
+    console.log("minting from address", ownerAccount);
     const tx1 = await contract.methods
       .mint(mintPropId)
-      .send({ from: mintingAccount, gas: 2000000 });
+      .send({ from: ownerAccount, gas: 2000000 });
 
     if (tx1) {
       console.log(tx1);
+      console.log(tx1.transactionHash);
     } else {
       console.log("something went wrong");
     }
   };
 
   const getAllTokens = async () => {
-    const accounts = await web3.eth.getAccounts();
-    const mintingAccount = accounts[0];
-
     let theTokens = [];
     const totalSupply = await contract.methods.totalSupply().call();
     console.log("totalSup:", totalSupply);
@@ -36,7 +32,7 @@ const Owner = (props) => {
     for (var i = 0; i < totalSupply; i++) {
       const token = await contract.methods.allTokens(i).call();
       const tokenOwner = await contract.methods.ownerOf(token).call();
-      if (tokenOwner === mintingAccount) {
+      if (tokenOwner === ownerAccount) {
         theTokens.push(token);
       }
     }
@@ -49,6 +45,7 @@ const Owner = (props) => {
 
   return (
     <div className="container">
+      <span>Account Owner: {ownerAccount}</span>
       <form>
         <input
           type="text"
@@ -61,16 +58,20 @@ const Owner = (props) => {
       </form>
 
       <div className="tokenContainer">
-        {houses.map((pr, key) => {
-          return (
-            <OwnerPropView
-              tokenId={pr}
-              key={key}
-              contract={contract}
-              web3={web3}
-            />
-          );
-        })}
+        {houses.length != 0 ? (
+          houses.map((pr, key) => {
+            return (
+              <OwnerPropView
+                tokenId={pr}
+                key={key}
+                contract={contract}
+                web3={web3}
+              />
+            );
+          })
+        ) : (
+          <p>You have no tokens</p>
+        )}
       </div>
     </div>
   );

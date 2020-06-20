@@ -22,7 +22,7 @@ const RealtorPropView = (props) => {
     getBid();
     getOwner();
     getIsApproved();
-  }, []);
+  }, [bidProcess]);
 
   const putOnMarket = async () => {
     const accounts = await web3.eth.getAccounts();
@@ -57,7 +57,7 @@ const RealtorPropView = (props) => {
     const accounts = await web3.eth.getAccounts();
     const realtorAccount = accounts[1];
     const tx1 = await contract.methods
-      .transferFrom(bidProcess[2], tokenOwner, props.tokenId)
+      .transferFrom(tokenOwner, bidProcess[2], props.tokenId)
       .send({ from: realtorAccount, gas: 2000000 });
 
     if (tx1) {

@@ -5,10 +5,10 @@ import OwnerPropView from "./OwnerPropView";
 const BidderA = (props) => {
   const web3 = props.web3;
   const contract = props.contract;
+  const bidderA_Address = props.allAccounts[2];
 
   const [houses, setHouses] = useState([]);
   const [ownedTokens, setOwnedTokens] = useState([]);
-  const [bidderAccount, setBidderAccount] = useState();
 
   const getAllTokens = async () => {
     let theTokens = [];
@@ -17,17 +17,11 @@ const BidderA = (props) => {
     for (var i = 0; i < totalSupply; i++) {
       const token = await contract.methods.allTokens(i).call();
       const tokenBid = await contract.methods.getBidProcess(token).call();
-      if (tokenBid[1] == true) {
+      if (tokenBid[1] === true) {
         theTokens.push(token);
       }
     }
     setHouses(theTokens);
-  };
-
-  const setAccount = async () => {
-    const accounts = await web3.eth.getAccounts();
-    const acc = accounts[2];
-    setBidderAccount(acc);
   };
 
   const getOwnedTokens = async () => {
@@ -37,7 +31,7 @@ const BidderA = (props) => {
     for (var i = 0; i < totalSupply; i++) {
       const token = await contract.methods.allTokens(i).call();
       const tokenOwner = await contract.methods.ownerOf(token).call();
-      if (tokenOwner === bidderAccount) {
+      if (tokenOwner == bidderA_Address) {
         theTokens.push(token);
       }
     }
@@ -45,13 +39,13 @@ const BidderA = (props) => {
   };
 
   useEffect(() => {
-    setAccount();
     getAllTokens();
     getOwnedTokens();
-  }, []);
+  }, [houses, ownedTokens]);
 
   return (
     <div className="container">
+      <span>Account Bidder A: {bidderA_Address}</span>
       <h2>Owned Tokens</h2>
       <div className="tokenContainer">
         {ownedTokens.map((pr, key) => {
@@ -75,7 +69,7 @@ const BidderA = (props) => {
               key={key}
               contract={contract}
               web3={web3}
-              bidderAccount={bidderAccount}
+              bidderAccount={bidderA_Address}
             />
           );
         })}
