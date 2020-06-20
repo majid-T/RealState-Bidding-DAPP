@@ -7,6 +7,7 @@ const Realtor = (props) => {
   const realtorAccount = props.allAccounts[1];
 
   const [houses, setHouses] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getAllTokens = async () => {
     let theTokens = [];
@@ -25,11 +26,11 @@ const Realtor = (props) => {
 
   useEffect(() => {
     getAllTokens();
-  }, []);
+  }, [loading]);
 
   return (
     <div className="container">
-      <span>Account Realtor: {realtorAccount}</span>
+      <span className="title_address">Account Realtor: {realtorAccount}</span>
       <div className="tokenContainer">
         {houses.length != 0 ? (
           houses.map((pr, key) => {

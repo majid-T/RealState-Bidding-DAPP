@@ -27,7 +27,6 @@ body {
 }
 
 a {
-  /* color: #ffffff; */
   text-decoration: none;
 }
 
@@ -44,10 +43,6 @@ a {
 .bidding {
   height: 50px;
   width: 300px;
-  border-radius: 10px;
-}
-
-#AVATAR {
   border-radius: 10px;
 }
 

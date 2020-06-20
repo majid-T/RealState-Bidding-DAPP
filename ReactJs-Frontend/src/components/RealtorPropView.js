@@ -7,6 +7,7 @@ const RealtorPropView = (props) => {
   const [tokenOwner, setTokenOwner] = useState("");
   const [bidProcess, setBidProcess] = useState({});
   const [isApproved, setIsApproved] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const getBid = async () => {
     const bid = await contract.methods.getBidProcess(props.tokenId).call();
@@ -22,9 +23,10 @@ const RealtorPropView = (props) => {
     getBid();
     getOwner();
     getIsApproved();
-  }, [bidProcess]);
+  }, [loading]);
 
   const putOnMarket = async () => {
+    setLoading(true);
     const accounts = await web3.eth.getAccounts();
     const realtorAccount = accounts[1];
 
@@ -37,9 +39,11 @@ const RealtorPropView = (props) => {
     } else {
       console.log("something went wrong");
     }
+    setLoading(false);
   };
 
   const revealWinner = async () => {
+    setLoading(true);
     const accounts = await web3.eth.getAccounts();
     const realtorAccount = accounts[1];
     const tx1 = await contract.methods
@@ -51,9 +55,11 @@ const RealtorPropView = (props) => {
     } else {
       console.log("something went wrong");
     }
+    setLoading(false);
   };
 
   const transferToWinner = async () => {
+    setLoading(true);
     const accounts = await web3.eth.getAccounts();
     const realtorAccount = accounts[1];
     const tx1 = await contract.methods
@@ -65,6 +71,7 @@ const RealtorPropView = (props) => {
     } else {
       console.log("something went wrong");
     }
+    setLoading(false);
   };
 
   const getIsApproved = async () => {
@@ -101,6 +108,7 @@ const RealtorPropView = (props) => {
           Transfer To Winner
         </button>
       )}
+      {loading && <p>Making changes...</p>}
     </div>
   );
 };
