@@ -8,8 +8,10 @@ const Owner = (props) => {
 
   const [houses, setHouses] = useState([]);
   const [mintPropId, setMintPropId] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const mintProperty = async () => {
+    setLoading(true);
     console.log("Minting ", mintPropId);
     console.log("minting from address", ownerAccount);
     const tx1 = await contract.methods
@@ -22,6 +24,7 @@ const Owner = (props) => {
     } else {
       console.log("something went wrong");
     }
+    setLoading(false);
   };
 
   const getAllTokens = async () => {
@@ -41,21 +44,25 @@ const Owner = (props) => {
 
   useEffect(() => {
     getAllTokens();
-  }, []);
+  }, [loading]);
 
   return (
     <div className="container">
-      <span>Account Owner: {ownerAccount}</span>
-      <form>
-        <input
-          type="text"
-          placeholder="Property Id"
-          onChange={(event) => setMintPropId(event.target.value)}
-        ></input>
-        <button type="button" onClick={mintProperty}>
-          Mint new Property
-        </button>
-      </form>
+      <span className="title_address">Account Owner: {ownerAccount}</span>
+      {loading ? (
+        <p>Minting...</p>
+      ) : (
+        <form>
+          <input
+            type="text"
+            placeholder="Property Id"
+            onChange={(event) => setMintPropId(event.target.value)}
+          ></input>
+          <button type="button" onClick={mintProperty}>
+            Mint new Property
+          </button>
+        </form>
+      )}
 
       <div className="tokenContainer">
         {houses.length != 0 ? (

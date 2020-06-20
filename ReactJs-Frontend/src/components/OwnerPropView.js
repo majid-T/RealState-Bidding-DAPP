@@ -7,6 +7,7 @@ const OwnerPropView = (props) => {
 
   const [bidProcess, setBidProcess] = useState({});
   const [porpRealtor, setPropRealtor] = useState(accountZero);
+  const [loading, setLoading] = useState(false);
 
   const getBid = async () => {
     const bid = await props.contract.methods
@@ -17,9 +18,10 @@ const OwnerPropView = (props) => {
 
   useEffect(() => {
     getBid();
-  }, [bidProcess]);
+  }, [loading]);
 
   const assignRealtor = async () => {
+    setLoading(true);
     const accounts = await web3.eth.getAccounts();
     const ownerAccount = accounts[0];
     const tx1 = await contract.methods
@@ -31,9 +33,11 @@ const OwnerPropView = (props) => {
     } else {
       console.log("something went wrong");
     }
+    setLoading(false);
   };
 
   const allowTransfer = async () => {
+    setLoading(true);
     const accounts = await web3.eth.getAccounts();
     const ownerAccount = accounts[0];
     const tx1 = await contract.methods
@@ -44,9 +48,11 @@ const OwnerPropView = (props) => {
     } else {
       console.log("something went wrong");
     }
+    setLoading(false);
   };
 
   const withdrawFromMarket = async () => {
+    setLoading(true);
     const accounts = await web3.eth.getAccounts();
     const ownerAccount = accounts[0];
     const tx1 = await contract.methods
@@ -57,6 +63,7 @@ const OwnerPropView = (props) => {
     } else {
       console.log("something went wrong");
     }
+    setLoading(false);
   };
 
   return (
@@ -90,6 +97,7 @@ const OwnerPropView = (props) => {
       <button type="button" onClick={withdrawFromMarket}>
         Withdraw from market
       </button>
+      {loading && <p>Making changes</p>}
     </div>
   );
 };

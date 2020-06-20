@@ -3,7 +3,7 @@ body {
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(7px + 2vmin);
   color: white;
   box-sizing: border-box;
 }
@@ -69,40 +69,12 @@ a {
   display: inline-block;
 }
 
-/* #select {
-  display: inline, none;
-  height: 30px;
-  width: 75px;
+.title_address {
+  background-color: sienna;
   border-radius: 10px;
-  color: purple;
-  background-color: orange;
-} */
-
-/* .CounterBid {
-  height: 50px;
-  width: 200px;
-  border-radius: 10px;
-  color: purple;
-  background-color: white;
-} */
-
-/* .Submit {
-  height: 50px;
-  width: 100px;
-  border-radius: 10px;
-  color: black;
-  background-color: orange;
+  text-align: center;
 }
 
-.select-selected {
-  background-color: orange;
-}
-
-.house {
-  height: 200px;
-  width: 400px;
-  border-radius: 10px;
-} */
 .marketBadge {
   width: 50%;
   border-radius: 0px 30px 30px 0px;
