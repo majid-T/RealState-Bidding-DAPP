@@ -2,6 +2,10 @@
 
 Group Project for Blockchain Design Patterns
 
+![PartI](/media/part1.gif)
+
+![PartII](/media/part1.gif)
+
 ## Students
 
 Majid Shockoohi | Aditi Sharma | Malhar Dave | Mariam Delos Reyes | Taj Sivers
