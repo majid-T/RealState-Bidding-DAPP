@@ -2,9 +2,13 @@
 
 Group Project for Blockchain Design Patterns
 
+<div align="center">
+
 ![PartI](/media/part1.gif)
 
-![PartII](/media/part1.gif)
+![PartII](/media/part2.gif)
+
+</div>
 
 ## Students
 
