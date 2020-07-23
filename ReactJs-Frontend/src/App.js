@@ -36,7 +36,7 @@ function App() {
     if (networkData) {
       const abi = RealEstateBidding.abi;
       //This will change on every deployment
-      const address = "0xfB52dAcB9902c5D041Ea87ebAA85bD75Dc8F40Ee";
+      const address = "0xfa50cF7fe9a287EDeA39fE5F7b486857395DE912";
       contract = await new web3.eth.Contract(abi, address);
     } else {
       window.alert("Smart contract not deployed to detected network.");

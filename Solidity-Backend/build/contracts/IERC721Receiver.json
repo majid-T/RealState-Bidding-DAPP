@@ -36,7 +36,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"onERC721Received\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface for any contract that wants to support safeTransfers from ERC721 asset contracts.\",\"methods\":{\"onERC721Received(address,address,uint256,bytes)\":{\"details\":\"The ERC721 smart contract calls this function on the recipient after a {IERC721-safeTransferFrom}. This function MUST return the function selector, otherwise the caller will revert the transaction. The selector to be returned can be obtained as `this.onERC721Received.selector`. This function MAY throw to revert and reject the transfer. Note: the ERC721 contract address is always the message sender.\",\"params\":{\"data\":\"Additional data with no specified format\",\"from\":\"The address which previously owned the token\",\"operator\":\"The address which called `safeTransferFrom` function\",\"tokenId\":\"The NFT identifier which is being transferred\"},\"returns\":{\"_0\":\"bytes4 `bytes4(keccak256(\\\"onERC721Received(address,address,uint256,bytes)\\\"))`\"}}},\"title\":\"ERC721 token receiver interface\"},\"userdoc\":{\"methods\":{\"onERC721Received(address,address,uint256,bytes)\":{\"notice\":\"Handle the receipt of an NFT\"}}}},\"settings\":{\"compilationTarget\":{\"/C/Users/majid/Desktop/GBC/Design Patterns for Blockchain/Group Assignment/RealState-Bidding-DAPP/Solidity-Backend/contracts/ERC721.sol\":\"IERC721Receiver\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/majid/Desktop/GBC/Design Patterns for Blockchain/Group Assignment/RealState-Bidding-DAPP/Solidity-Backend/contracts/ERC721.sol\":{\"keccak256\":\"0x0984ab4a0743b54c17471bb82976bb0a8c135728f5b9da74a0be0f0a4497bab7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ac788ebfaec660452ead0426d72dfc5a2edc584025caa2b1816908b8b461f9bb\",\"dweb:/ipfs/Qma7iRTyK5rWpaZYfqBLSzQZEKsxyxDjfxZY8YcSLkjHsL\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"onERC721Received\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface for any contract that wants to support safeTransfers from ERC721 asset contracts.\",\"kind\":\"dev\",\"methods\":{\"onERC721Received(address,address,uint256,bytes)\":{\"details\":\"The ERC721 smart contract calls this function on the recipient after a {IERC721-safeTransferFrom}. This function MUST return the function selector, otherwise the caller will revert the transaction. The selector to be returned can be obtained as `this.onERC721Received.selector`. This function MAY throw to revert and reject the transfer. Note: the ERC721 contract address is always the message sender.\",\"params\":{\"data\":\"Additional data with no specified format\",\"from\":\"The address which previously owned the token\",\"operator\":\"The address which called `safeTransferFrom` function\",\"tokenId\":\"The NFT identifier which is being transferred\"},\"returns\":{\"_0\":\"bytes4 `bytes4(keccak256(\\\"onERC721Received(address,address,uint256,bytes)\\\"))`\"}}},\"title\":\"ERC721 token receiver interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"onERC721Received(address,address,uint256,bytes)\":{\"notice\":\"Handle the receipt of an NFT\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/C/Users/majid/Desktop/GBC/Design Patterns for Blockchain/Group Assignment/RealState-Bidding-DAPP/Solidity-Backend/contracts/ERC721.sol\":\"IERC721Receiver\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/majid/Desktop/GBC/Design Patterns for Blockchain/Group Assignment/RealState-Bidding-DAPP/Solidity-Backend/contracts/ERC721.sol\":{\"keccak256\":\"0x0984ab4a0743b54c17471bb82976bb0a8c135728f5b9da74a0be0f0a4497bab7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ac788ebfaec660452ead0426d72dfc5a2edc584025caa2b1816908b8b461f9bb\",\"dweb:/ipfs/Qma7iRTyK5rWpaZYfqBLSzQZEKsxyxDjfxZY8YcSLkjHsL\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -6542,7 +6542,12 @@
                         }
                       ],
                       "expression": {
-                        "argumentTypes": null,
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_stringliteral_c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+                            "typeString": "literal_string \"\""
+                          }
+                        ],
                         "expression": {
                           "argumentTypes": null,
                           "id": 521,
@@ -38050,7 +38055,12 @@
                         }
                       ],
                       "expression": {
-                        "argumentTypes": null,
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_stringliteral_c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+                            "typeString": "literal_string \"\""
+                          }
+                        ],
                         "expression": {
                           "argumentTypes": null,
                           "id": 521,
@@ -63062,13 +63072,14 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.6.10+commit.00c0fcaf.Emscripten.clang"
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-06-20T12:24:23.331Z",
+  "updatedAt": "2020-07-23T18:26:03.458Z",
   "devdoc": {
     "details": "Interface for any contract that wants to support safeTransfers from ERC721 asset contracts.",
+    "kind": "dev",
     "methods": {
       "onERC721Received(address,address,uint256,bytes)": {
         "details": "The ERC721 smart contract calls this function on the recipient after a {IERC721-safeTransferFrom}. This function MUST return the function selector, otherwise the caller will revert the transaction. The selector to be returned can be obtained as `this.onERC721Received.selector`. This function MAY throw to revert and reject the transfer. Note: the ERC721 contract address is always the message sender.",
@@ -63083,13 +63094,16 @@
         }
       }
     },
-    "title": "ERC721 token receiver interface"
+    "title": "ERC721 token receiver interface",
+    "version": 1
   },
   "userdoc": {
+    "kind": "user",
     "methods": {
       "onERC721Received(address,address,uint256,bytes)": {
         "notice": "Handle the receipt of an NFT"
       }
-    }
+    },
+    "version": 1
   }
 }

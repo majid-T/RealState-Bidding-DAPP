@@ -1,9 +1,9 @@
 {
   "contractName": "SafeMath",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"details\":\"Wrappers over Solidity's arithmetic operations with added overflow checks. Arithmetic operations in Solidity wrap on overflow. This can easily result in bugs, because programmers usually assume that an overflow raises an error, which is the standard behavior in high level programming languages. `SafeMath` restores this intuition by reverting the transaction when an operation overflows. Using this library instead of the unchecked operations eliminates an entire class of bugs, so it's recommended to use it always.\",\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/majid/Desktop/GBC/Design Patterns for Blockchain/Group Assignment/RealState-Bidding-DAPP/Solidity-Backend/contracts/ERC721.sol\":\"SafeMath\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/majid/Desktop/GBC/Design Patterns for Blockchain/Group Assignment/RealState-Bidding-DAPP/Solidity-Backend/contracts/ERC721.sol\":{\"keccak256\":\"0x0984ab4a0743b54c17471bb82976bb0a8c135728f5b9da74a0be0f0a4497bab7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ac788ebfaec660452ead0426d72dfc5a2edc584025caa2b1816908b8b461f9bb\",\"dweb:/ipfs/Qma7iRTyK5rWpaZYfqBLSzQZEKsxyxDjfxZY8YcSLkjHsL\"]}},\"version\":1}",
-  "bytecode": "0x60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212205edde2c6bed720fa114bfe8e62a866d7b829a6182bf90fffac32cf1b5aa2bc5b64736f6c634300060a0033",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212205edde2c6bed720fa114bfe8e62a866d7b829a6182bf90fffac32cf1b5aa2bc5b64736f6c634300060a0033",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"details\":\"Wrappers over Solidity's arithmetic operations with added overflow checks. Arithmetic operations in Solidity wrap on overflow. This can easily result in bugs, because programmers usually assume that an overflow raises an error, which is the standard behavior in high level programming languages. `SafeMath` restores this intuition by reverting the transaction when an operation overflows. Using this library instead of the unchecked operations eliminates an entire class of bugs, so it's recommended to use it always.\",\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/C/Users/majid/Desktop/GBC/Design Patterns for Blockchain/Group Assignment/RealState-Bidding-DAPP/Solidity-Backend/contracts/ERC721.sol\":\"SafeMath\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/majid/Desktop/GBC/Design Patterns for Blockchain/Group Assignment/RealState-Bidding-DAPP/Solidity-Backend/contracts/ERC721.sol\":{\"keccak256\":\"0x0984ab4a0743b54c17471bb82976bb0a8c135728f5b9da74a0be0f0a4497bab7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ac788ebfaec660452ead0426d72dfc5a2edc584025caa2b1816908b8b461f9bb\",\"dweb:/ipfs/Qma7iRTyK5rWpaZYfqBLSzQZEKsxyxDjfxZY8YcSLkjHsL\"]}},\"version\":1}",
+  "bytecode": "0x60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212202184c907d4fb282c15aa24243ca4ca0e1a0315cc40775140023859841f420b1064736f6c634300060c0033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212202184c907d4fb282c15aa24243ca4ca0e1a0315cc40775140023859841f420b1064736f6c634300060c0033",
   "immutableReferences": {},
   "sourceMap": "11665:4588:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "11665:4588:0:-:0;;;;;;;;",
@@ -6507,7 +6507,12 @@
                         }
                       ],
                       "expression": {
-                        "argumentTypes": null,
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_stringliteral_c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+                            "typeString": "literal_string \"\""
+                          }
+                        ],
                         "expression": {
                           "argumentTypes": null,
                           "id": 521,
@@ -38015,7 +38020,12 @@
                         }
                       ],
                       "expression": {
-                        "argumentTypes": null,
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_stringliteral_c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+                            "typeString": "literal_string \"\""
+                          }
+                        ],
                         "expression": {
                           "argumentTypes": null,
                           "id": 521,
@@ -63027,16 +63037,20 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.6.10+commit.00c0fcaf.Emscripten.clang"
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-06-20T12:24:23.500Z",
+  "updatedAt": "2020-07-23T18:26:03.577Z",
   "devdoc": {
     "details": "Wrappers over Solidity's arithmetic operations with added overflow checks. Arithmetic operations in Solidity wrap on overflow. This can easily result in bugs, because programmers usually assume that an overflow raises an error, which is the standard behavior in high level programming languages. `SafeMath` restores this intuition by reverting the transaction when an operation overflows. Using this library instead of the unchecked operations eliminates an entire class of bugs, so it's recommended to use it always.",
-    "methods": {}
+    "kind": "dev",
+    "methods": {},
+    "version": 1
   },
   "userdoc": {
-    "methods": {}
+    "kind": "user",
+    "methods": {},
+    "version": 1
   }
 }
